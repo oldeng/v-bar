@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>柱状图</title>
+    <style type="text/css">
+        body {
+            background: rgba(30, 30, 30, 1);
+        }
+
+        canvas {
+            border: 1px solid #000;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+    </style>
+    <link rel="stylesheet" href="./v-bar.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.js"></script>
+    <script src="./v-bar.umd.js"></script>
+    <script type="text/javascript">
+        let dom = document.querySelector('#bar');
+        // Vue.use()
+        new Vue({
+            mounted() {
+                this.$nextTick(() => {
+                })
+            },
+            render: h => h({
+                template: `
+                <div class="container">
+                    <v-bar ref="bar"></v-bar>
+                </div>
+               `,
+                mounted() {
+                    this.$nextTick(() => {
+                        this.$refs['bar'].setOptions({
+                            animation: true,
+                            legend: [
+                                {
+                                    name: '系列一',
+                                    background: 'green',
+                                    color: 'white',
+                                    fontSize: '12px',
+                                    align: '',
+                                    width: 10,
+                                    height: 10,
+                                    x: 80,
+                                    y: 20
+                                },
+                                {
+                                    name: '系列二',
+                                    background: 'white',
+                                    color: 'white',
+                                    fontSize: '12px',
+                                    align: '',
+                                    width: 10,
+                                    height: 10,
+                                    x: 200,
+                                    y: 20
+                                }
+                            ],
+                            grid: {
+                                top: 50,
+                                right: 50,
+                                bottom: 50,
+                                left: 50
+                            },
+                            xAxis: {
+                                name: 'x轴线',
+                                color: 'red',
+                                splitWidth: 6,
+                                fontSize: 12,
+                                fontFamily: '微软雅黑',
+                                data: ['aa', 'B', 'C', 'D']
+                            },
+                            yAxis: {
+                                name: '',
+                                color: 'red',
+                                splitWidth: 6,
+                                fontSize: 14,
+                                fontFamily: '微软雅黑',
+                                data: [1, 2, 3, 4, 5],
+                                interval: 10,
+                                min: 0,
+                                max: 100
+                            },
+                            series: [
+                                {
+                                    name: '已经办理业务',
+                                    background: 'white',
+                                    width: 30,
+                                    spliteColor: 'white',
+                                    data: [30, 20, 30, 40]
+                                },
+                                {
+                                    name: '未经办理业务',
+                                    background: 'green',
+                                    width: 30,
+                                    spliteColor: 'white',
+                                    data: [40, 30, 20, 10]
+                                }
+                            ]
+                        })
+                    })
+                }
+            })
+        }).$mount('#app')
+
+    </script>
+
+</html>
