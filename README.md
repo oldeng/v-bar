@@ -1,6 +1,6 @@
 #预览
 
-![预览](http://test.com/public/v-bar.gif)
+![预览](https://github.com/oldeng/v-bar/blob/master/public/v-bar.gif)
 
 #使用
 
@@ -135,3 +135,7 @@ export default {
 </style>
 
 ```
+
+#Github
+
+Github传送门[v-bar](https://github.com/oldeng/v-bar).
